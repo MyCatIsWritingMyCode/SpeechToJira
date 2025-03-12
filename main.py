@@ -34,8 +34,8 @@ def main():
         #print(sentences)
 
         topic_processor = NLPProcessor(logger, config)
-        topic_processor.extract_topics(data)
-        #
+        segmented_text : list[str] = topic_processor.extract_topics(data)
+
         # jira_model_name = config.get("jira_generator")["model_name"]
         # jira_generator = JiraGenerator(jira_model_name, logger)
         #

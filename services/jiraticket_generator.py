@@ -1,7 +1,18 @@
-class DeepSeekJiraGenerator:
-    def __init__(self, model_name, logger):
+import logging
+from jira import JIRA
+from models.app_config import *
+
+class JiraGenerator:
+    def __init__(self, logger : logging.Logger, config : Config):
         self.logger = logger
-        self.logger.info(f"Initialized JIRA generator model: {model_name}")
+        self.config = config
+
+    def login_and_authenticate(self):
+        try:
+            jira = JIRA(basic_auth=("email", "API token"))
+        except Exception as e:
+            self.logger.error(f"JIRA Log-In failed: {e}")
+            raise
 
     def generate_tickets(self, topics):
         try:

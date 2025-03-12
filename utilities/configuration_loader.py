@@ -2,7 +2,7 @@ import json
 from models.app_config import *
 
 class ConfigLoader:
-    def __init__(self, path):
+    def __init__(self, path : str):
         self.path = path
 
     def load(self) -> (AppConfig, LogConfig):

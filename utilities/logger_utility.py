@@ -4,7 +4,7 @@ from datetime import datetime
 
 class Logger:
     @staticmethod
-    def get_logger(log_config: LogConfig):
+    def get_logger(log_config: LogConfig) -> logging.Logger:
 
         # get logger
         logger = logging.getLogger("TTS_Logger")
